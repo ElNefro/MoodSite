@@ -1,0 +1,199 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none; /* для атмосферы, но текст можно копировать */
+        }
+
+        body {
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            font-family: 'Segoe UI', system-ui, 'Inter', sans-serif;
+            transition: background 0.4s, color 0.3s;
+        }
+
+        /* Динамические классы темы (тип личности) */
+        body.melancholic {
+            background: linear-gradient(145deg, #0f1724, #030712);
+            color: #ccddee;
+        }
+        body.melancholic .chat-window { background: rgba(10, 20, 35, 0.85); border-left: 2px solid #4b6b9f; }
+        body.melancholic .hotbar { background: #0b1222dd; border-top: 1px solid #2d3e5a; }
+
+        body.sanguine {
+            background: linear-gradient(125deg, #ffb347, #ff7e05);
+            color: #2c1a0a;
+        }
+        body.sanguine .chat-window { background: rgba(255, 235, 200, 0.9); border-left: 2px solid #ff9f4a; color: #2c1a0a; }
+        body.sanguine .hotbar { background: #ffdd99dd; border-top: 1px solid #ffb347; }
+
+        body.choleric {
+            background: linear-gradient(115deg, #a30000, #4a0000);
+            color: #ffe0e0;
+        }
+        body.choleric .chat-window { background: rgba(70, 10, 10, 0.9); border-left: 2px solid #e34d4d; }
+        body.choleric .hotbar { background: #5a1e1edd; border-top: 1px solid #b33; }
+
+        body.phlegmatic {
+            background: linear-gradient(135deg, #2b5e3b, #0f3b2c);
+            color: #e2f0e2;
+        }
+        body.phlegmatic .chat-window { background: rgba(25, 60, 35, 0.85); border-left: 2px solid #6aa86a; }
+        body.phlegmatic .hotbar { background: #1d3b2add; border-top: 1px solid #4c8b5e; }
+
+        /* основной макет */
+        .workspace {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            flex-direction: row;
+            position: relative;
+        }
+
+        .main-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem 2rem;
+            overflow-y: auto;
+        }
+
+        .greeting-block {
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(4px);
+            border-radius: 2rem;
+            padding: 1rem 1.5rem;
+            max-width: 500px;
+            margin-bottom: 1rem;
+        }
+
+        /* чат справа */
+        .chat-window {
+            width: 340px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(12px);
+            border-left: 2px solid rgba(255,255,255,0.2);
+            box-shadow: -5px 0 20px rgba(0,0,0,0.3);
+            transition: all 0.2s;
+        }
+
+        .chat-header {
+            padding: 1rem;
+            font-weight: bold;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .message {
+            padding: 0.6rem 0.9rem;
+            border-radius: 1.5rem;
+            max-width: 90%;
+            word-break: break-word;
+            font-size: 0.9rem;
+        }
+
+        .user-msg {
+            background: #3b82f6;
+            color: white;
+            align-self: flex-end;
+            border-bottom-right-radius: 0.2rem;
+        }
+
+        .ai-msg {
+            background: rgba(255,255,255,0.2);
+            align-self: flex-start;
+            border-bottom-left-radius: 0.2rem;
+        }
+
+        .chat-input-area {
+            display: flex;
+            padding: 0.8rem;
+            gap: 0.5rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        .chat-input-area input {
+            flex: 1;
+            background: rgba(0,0,0,0.4);
+            border: none;
+            padding: 0.6rem 1rem;
+            border-radius: 40px;
+            color: inherit;
+            outline: none;
+        }
+        .chat-input-area button {
+            background: #3b82f6;
+            border: none;
+            border-radius: 40px;
+            padding: 0 1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Hotbar снизу (фиксирован внизу страницы) */
+        .hotbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 75px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
+            padding: 0 2rem;
+            gap: 1.2rem;
+            overflow-x: auto;
+            z-index: 100;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        .app-icon {
+            background: rgba(255,255,255,0.15);
+            border-radius: 1rem;
+            padding: 0.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.2rem;
+            min-width: 70px;
+            cursor: pointer;
+            transition: 0.1s linear;
+            font-size: 0.7rem;
+            font-weight: 500;
+        }
+        .app-icon:hover {
+            background: rgba(255,255,255,0.35);
+            transform: translateY(-3px);
+        }
+        .music-control {
+            margin-left: auto;
+            background: #1e293b;
+            padding: 0.3rem 1rem;
+            border-radius: 60px;
+            cursor: pointer;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        /* отступ снизу для контента, чтобы не перекрывался хотбаром */
+        .main-area {
+            padding-bottom: 90px;
+        }
+
+        @media (max-width: 750px) {
+            .chat-window { width: 280px; }
+            .app-icon { min-width: 55px; font-size: 0.6rem; }
+        }
