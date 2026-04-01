@@ -60,18 +60,36 @@
         }
 
         .greeting-block {
+            position: absolute;
+            left: calc(-100%);
             background: rgba(0,0,0,0.3);
             backdrop-filter: blur(4px);
             border-radius: 2rem;
             padding: 1rem 1.5rem;
             max-width: 500px;
             margin-bottom: 1rem;
+            animation: move 7s linear;
         }
+
+        @keyframes move {
+
+            20% {
+                left: calc(2%);
+            }
+
+            60% {
+                left: calc(2%);
+            }
+            100% {
+                left: calc(-100%);
+            }
+        }
+
 
         /* чат справа */
         .chat-window {
             width: 340px;
-            height: 100%;
+            height: 90%;
             display: flex;
             flex-direction: column;
             backdrop-filter: blur(12px);
@@ -162,7 +180,7 @@
         }
         .app-icon {
             background: rgba(255,255,255,0.15);
-            border-radius: 1rem;
+            border-radius: 10px;
             padding: 0.5rem 1rem;
             display: flex;
             flex-direction: column;

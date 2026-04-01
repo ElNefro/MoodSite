@@ -14,6 +14,11 @@
             <p id="personalityDesc">Персонализированная среда готова к работе.</p>
         </div>
         <!-- Можно добавить виджет, но чат справа -->
+         <div class="MusicPlayer">
+
+            <button></button>
+
+         </div>
     </div>
     <div class="chat-window">
         <div class="chat-header">
@@ -178,6 +183,7 @@
         appDiv.addEventListener('click', () => window.open(app.url, '_blank'));
         hotbarDiv.appendChild(appDiv);
     });
+
     // добавить кнопку музыки
     const musicBtn = document.createElement('div');
     musicBtn.className = 'music-control';
