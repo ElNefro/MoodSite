@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkStyle — настройка профиля</title>
+    <link rel="stylesheet" href="../CSS/select.css">
+</head>
+<body>
+<div class="select-container">
+    <h2>⚙️ Настройте ваш профиль</h2>
+    <div class="option-group">
+        <div class="group-title">🧑‍💻 Ваша роль</div>
+        <div class="radio-grid" id="roleGroup">
+            <div class="radio-card" data-value="programmer">
+                <input type="radio" name="role" value="programmer" id="prog">
+                <label for="prog">👨‍💻 Программист</label>
+            </div>
+            <div class="radio-card" data-value="designer">
+                <input type="radio" name="role" value="designer" id="des">
+                <label for="des">🎨 Дизайнер</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="option-group">
+        <div class="group-title">🧠 Тип личности</div>
+        <div class="radio-grid" id="personalityGroup">
+            <div class="radio-card" data-value="melancholic">
+                <input type="radio" name="personality" value="melancholic" id="mel">
+                <label for="mel">🌙 Меланхолик</label>
+            </div>
+            <div class="radio-card" data-value="sanguine">
+                <input type="radio" name="personality" value="sanguine" id="san">
+                <label for="san">☀️ Сангвиник</label>
+            </div>
+            <div class="radio-card" data-value="choleric">
+                <input type="radio" name="personality" value="choleric" id="chol">
+                <label for="chol">🔥 Холерик</label>
+            </div>
+            <div class="radio-card" data-value="phlegmatic">
+                <input type="radio" name="personality" value="phlegmatic" id="phleg">
+                <label for="phleg">🌊 Флегматик</label>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn-submit" id="startWorkspaceBtn">✨ Создать мой рабочий стол ✨</button>
+    <a href="../index.html" class="back-link">← Вернуться на приветственную</a>
+</div>
+
+<script src="../JS/select.js"></script>
+</body>
+</html>

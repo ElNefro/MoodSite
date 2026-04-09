@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+        <title>WorkSpace — ваш персональный рабочий стол</title>
+        <link rel="stylesheet" href="../CSS/workspace.css" />
+    </head>
+    <body>
+        <div class="workspace">
+            <div class="main-area">
+                <div class="greeting-block">
+                    <h2 id="welcomeTitle">✨ Добро пожаловать</h2>
+                    <p id="personalityDesc">Персонализированная среда готова к работе.</p>
+                </div>
+                <div class="MusicPlayer">
+                    <iframe
+                        id="yandex-music-player"
+                        class="yandex-music-frame"
+                        src="https://music.yandex.ru/iframe/playlist/vallery2008/1008"
+                        allow="clipboard-write"
+                        style="border: none; width: 400px; height: 600px; border-radius: 25px"
+                        width="400"
+                        height="600"
+                        title="Плейлист Яндекс Музыка">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="chat-window">
+                <div class="chat-header">
+                    <span>🤖 Нейро-ассистент</span>
+                    <span style="font-size: 0.7rem" id="aiModeTag">режим: </span>
+                </div>
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message ai-msg">
+                        Привет! Я твой ИИ-помощник, настроенный под твой тип личности и роль. Задай вопрос или попроси
+                        совет по работе.
+                    </div>
+                </div>
+                <div class="chat-input-area">
+                    <input type="text" id="chatInput" placeholder="Напишите сообщение..." autocomplete="off" />
+                    <button id="sendBtn">➤</button>
+                </div>
+            </div>
+        </div>
+        <div class="hotbar" id="hotbarContainer"></div>
+
+        <script src="../JS/workspace.js"></script>
+    </body>
+</html>
